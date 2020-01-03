@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const github = axios.create({
     baseURL: 'https://api.github.com',
-    timeout: 1000,
+    // timeout: 1000,
     headers: {
         Authorization: `token ${process.env.GIT_ACCESS_TOKEN}`,
         Accept: "application/vnd.github.v3+json"
