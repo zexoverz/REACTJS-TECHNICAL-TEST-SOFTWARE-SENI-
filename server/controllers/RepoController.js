@@ -14,8 +14,17 @@ const github = axios.create({
 
 class RepoController {
 
-    static findReposByUser(){
-
+    static findReposByUser(req,res,next){
+        github({
+            method: "get",
+            url: `/users/${req.params.username}/repos`,
+        }).then(({
+            data
+        }) => {
+            res.status(200).json(data);
+        }).catch((err) => {
+            next(err);
+        })
     }
 
 
